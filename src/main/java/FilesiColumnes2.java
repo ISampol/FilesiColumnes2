@@ -119,7 +119,9 @@ public class FilesiColumnes2 {
                 System.out.println("element " + trobarValorFila + " " + trobarValorColumna + ": " + taula[trobarValorFila][trobarValorColumna]);
 
             }else if (eleccio.equals("diagonal")){
-                if ()
+                if (numFiles == numColumnes){
+
+                }
             }
             //QUAN ESCRIGUI stop SURT DEL DO WHILE, ES A DIR, S'ATURA EL PROGRAMA
         }while (!eleccio.equals("exit"));
