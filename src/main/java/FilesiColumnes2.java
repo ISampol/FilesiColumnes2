@@ -35,7 +35,7 @@ public class FilesiColumnes2 {
 
         //DO WHILE PER A INDICAR-LI QUE MENTRE NO ESCRIGUI "STOP" SEGUEIXI DEMANANT QUE VOL FER
         do {
-            System.out.println("Digues que vols mostrar ara: fila, sumaFila, columna, sumaColumna, element, diagonal");
+            System.out.println("Digues que vols mostrar ara: fila, sumaFila, columna, sumaColumna, element, diagonal o conte");
             eleccio = sc.next();
 
             //SI ESCOLLEIX FILA, LI DIGUEM QUE ESCRIGUI EL NUMERO DE LA FILA QUE VOL I AMB DOS FORS FEM QUE
@@ -124,7 +124,7 @@ public class FilesiColumnes2 {
                 int posicioColumna = 0;
                 int llargColumna = numColumnes;
 
-                if (numFiles == numColumnes){
+                if (numFiles == numColumnes) {
                     //AMB LA VARIABLE CREADA PER A AQUESTA DIAGONAL FEM QUE MOSTRI EL PRIMER VALOR DE LA COLUMNA 1 I FILA 1
                     //JA QUE ANEM D'ESQUERRA A DRETA. DESPRÉS QUAN HAGI MOSTRAT EL VALOR, FEM QUE PASSI A LA SEGUENT FILA,
                     //I SUMI UNA COLUMNA PER MOSTRAR EL VALOR DE LA SEGUENT FILA I SEGUENT COLUMNA I AIXI FINS QUE ARRIVI A
@@ -137,17 +137,43 @@ public class FilesiColumnes2 {
                         posicioColumna++;
                     }
 
+                    //AMB UNA VARIABLE LA QUAL LI DONO EL NUM TOTAL DE COLUMNES, ES A DIR QUE ANIRÁ A L'ULTIMA FILA
+                    //FAIG QUE COMENÇI DES DE L'ULTIMA FILA A MOSTRRA I VAGI CAP ENDEVANT
                     System.out.println("Diagonal dreta-esquerra:");
                     for (int i = 0; i < numFiles; i++) {
-                        for (int j = llargColumna - 1; j == llargColumna - 1 ; j++) {
+                        for (int j = llargColumna - 1; j == llargColumna - 1; j++) {
                             System.out.println(taula[i][j]);
                         }
                         llargColumna--;
                     }
                 }else{
+                    //SI L'ARRAY BIDIMENSIONAL NO ES QUADRAT, MOSTRA EL SEGUENT I NO FA RES MES
                     System.out.println("No té diagonal");
                 }
+
+
+            }else if (eleccio.equals("conte")){
+
+                //ARA FEM QUE SI EL NUMERO DE FILA O COLUMNA COINCIDEIX AMB ALGUN NUMERO DE LA FILA ES MOSTRI LA FILA O
+                //COLUMNA I EL NUMERO
+                for (int i = 0; i < numFiles; i++) {
+                    //FEM QUE COM QUE LA i VA DES DE 0 FINS A LA ULTIMA FILA (Ex, 4 files: 0 1 2 3),
+                    //PODEM FER QUE SI LA i COINCIDEIX AMB ALGÚN NUMERO DE LA TAULA, MOSTRI QUIN HAH SIGUT EL NUMERO QUE
+                    //HA COINCIDIT AMB EL NUM DE LA FILA. SI COINCIDEIX ES PARA AMB EL break
+                    for (int j = 0; j < numColumnes; j++) {
+                        if (taula[i][j] == i){
+                            System.out.println("Es repeteixen el numero " + taula[i][j] + " amb la fila " + i);
+                            break;
+
+                            //EL MATEIX QUE AMB LA FILA I LA i, PERO AMB LA COLUMNA I LA j, QUE ES LA QUE VA COMPTANT COLUMNES
+                        }else if (taula[i][j] == j){
+                            System.out.println("Es repeteien el numero " + taula[i][j] + " amb la columna " + j);
+                            break;
+                        }
+                    }
+                }
             }
+
             //QUAN ESCRIGUI stop SURT DEL DO WHILE, ES A DIR, S'ATURA EL PROGRAMA
         }while (!eleccio.equals("exit"));
 
