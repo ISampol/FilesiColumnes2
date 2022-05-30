@@ -35,7 +35,7 @@ public class FilesiColumnes2 {
 
         //DO WHILE PER A INDICAR-LI QUE MENTRE NO ESCRIGUI "STOP" SEGUEIXI DEMANANT QUE VOL FER
         do {
-            System.out.println("Digues que vols mostrar ara: fila, sumaFila, columna, sumaColumna o element");
+            System.out.println("Digues que vols mostrar ara: fila, sumaFila, columna, sumaColumna, element, diagonal");
             eleccio = sc.next();
 
             //SI ESCOLLEIX FILA, LI DIGUEM QUE ESCRIGUI EL NUMERO DE LA FILA QUE VOL I AMB DOS FORS FEM QUE
@@ -119,8 +119,33 @@ public class FilesiColumnes2 {
                 System.out.println("element " + trobarValorFila + " " + trobarValorColumna + ": " + taula[trobarValorFila][trobarValorColumna]);
 
             }else if (eleccio.equals("diagonal")){
-                if (numFiles == numColumnes){
 
+                //CREEM VARIABLES PER INDICAR DES D'ON A DE COMENÇAR A MOSTRAR EL VALOR
+                int posicioColumna = 0;
+                int llargColumna = numColumnes;
+
+                if (numFiles == numColumnes){
+                    //AMB LA VARIABLE CREADA PER A AQUESTA DIAGONAL FEM QUE MOSTRI EL PRIMER VALOR DE LA COLUMNA 1 I FILA 1
+                    //JA QUE ANEM D'ESQUERRA A DRETA. DESPRÉS QUAN HAGI MOSTRAT EL VALOR, FEM QUE PASSI A LA SEGUENT FILA,
+                    //I SUMI UNA COLUMNA PER MOSTRAR EL VALOR DE LA SEGUENT FILA I SEGUENT COLUMNA I AIXI FINS QUE ARRIVI A
+                    //L ULTIMA COLUMNA I ULTIMA FILA
+                    System.out.println("Diagonal esquerra-dreta:");
+                    for (int i = 0; i < numFiles; i++) {
+                        for (int j = posicioColumna; j == posicioColumna; j++) {
+                            System.out.println(taula[i][j]);
+                        }
+                        posicioColumna++;
+                    }
+
+                    System.out.println("Diagonal dreta-esquerra:");
+                    for (int i = 0; i < numFiles; i++) {
+                        for (int j = llargColumna - 1; j == llargColumna - 1 ; j++) {
+                            System.out.println(taula[i][j]);
+                        }
+                        llargColumna--;
+                    }
+                }else{
+                    System.out.println("No té diagonal");
                 }
             }
             //QUAN ESCRIGUI stop SURT DEL DO WHILE, ES A DIR, S'ATURA EL PROGRAMA
